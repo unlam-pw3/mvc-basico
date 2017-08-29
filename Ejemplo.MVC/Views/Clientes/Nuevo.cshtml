@@ -1,0 +1,39 @@
+﻿@model Ejemplo.MVC.Dominio.Entidades.Cliente
+
+@{
+    ViewBag.Title = "Nuevo Cliente";
+}
+<form action="Nuevo" method="POST">
+
+    <h2>Nuevo Cliente</h2>
+    <div>
+        <p>Nombre</p>
+        <input name="Nombre" type="text" />
+    </div>
+    <div>
+
+        <p>Apellido</p>
+        <input name="Apellido" type="text" />
+    </div>
+    <div>
+        <p>Fecha Nacimiento</p>
+        <input name="FechaNacimiento" type="text"/>
+    </div>
+    <div>
+        <p>Localidades</p>
+        <select name="NombreLocalidad">
+            @foreach (var localidad in ViewBag.Localidades)
+            {
+                <option id="@localidad.Id">@localidad.Nombre</option>
+            }
+        </select>
+    </div>
+    <br />
+    <br />
+    <input name="Guardar" Value="Guardar" type="submit" />
+</form>
+<br />
+<div>
+    <a href="/Home">Volver al listado</a>
+</div>
+

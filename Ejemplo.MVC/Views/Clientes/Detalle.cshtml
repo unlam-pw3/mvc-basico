@@ -1,0 +1,18 @@
+﻿@model Ejemplo.MVC.Dominio.Entidades.Cliente
+@{
+    ViewBag.Title = "Ver Clientes";
+}
+<h2>Cliente</h2>
+<strong>Id</strong>
+<p>@Model.Id</p>
+<strong>Nombre</strong>
+<p>@Model.Nombre</p>
+<strong>Apellido</strong>
+<p>@Model.Apellido</p>
+<strong>Fecha Nacimiento</strong>
+<p>@Model.FechaNacimiento.ToShortDateString()</p>
+
+<div>
+    <a href="/Home">Volver al listado</a>
+</div>
+
