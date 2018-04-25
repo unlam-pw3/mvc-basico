@@ -38,7 +38,7 @@ namespace Ejemplo.MVC.Dominio.Repositorios
             });
         }
 
-        internal object Obtener(int idCliente)
+        internal Cliente Obtener(int idCliente)
         {
             return Clientes.FirstOrDefault(c => c.Id == idCliente);
         }
@@ -46,9 +46,17 @@ namespace Ejemplo.MVC.Dominio.Repositorios
         {
             return Clientes;
         }
-        public void Guardar(Cliente cliente)
+        public void Agregar(Cliente cliente)
         {
             Clientes.Add(cliente);
+        }
+        public void Modificar(Cliente cliente)
+        {
+            Cliente clienteActual = Obtener(cliente.Id);
+            clienteActual.Apellido = cliente.Apellido;
+            clienteActual.Nombre = cliente.Nombre;
+            clienteActual.FechaNacimiento = cliente.FechaNacimiento;
+            clienteActual.NombreLocalidad = cliente.NombreLocalidad;
         }
     }
 }

@@ -4,7 +4,7 @@
     ViewBag.Title = "Nuevo Cliente";
 }
 <form action="Nuevo" method="POST">
-
+    @Html.AntiForgeryToken()
     <h2>Nuevo Cliente</h2>
     <div>
         <p>Nombre</p>
@@ -17,7 +17,7 @@
     </div>
     <div>
         <p>Fecha Nacimiento</p>
-        <input name="FechaNacimiento" type="text"/>
+        <input name="FechaNacimiento" type="date" />
     </div>
     <div>
         <p>Localidades</p>

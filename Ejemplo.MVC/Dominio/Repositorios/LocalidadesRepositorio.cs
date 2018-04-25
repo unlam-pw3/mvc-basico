@@ -30,7 +30,7 @@ namespace Ejemplo.MVC.Dominio.Repositorios
             Localidades.Add(new Localidad
             {
                 Id = 2,
-                Nombre = "Ramos Mejía",
+                Nombre = "Ramos Mejia",
             });
         }
 

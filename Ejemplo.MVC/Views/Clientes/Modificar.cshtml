@@ -1,0 +1,49 @@
+﻿@model Ejemplo.MVC.Dominio.Entidades.Cliente
+
+@{
+    string nombreCompleto = Model.Nombre + " " + Model.Apellido;
+    ViewBag.Title = "Modificando Cliente " + nombreCompleto;
+}
+<form action="Nuevo" method="POST">
+    @Html.AntiForgeryToken()
+    <input name="Id" type="hidden" value="@Model.Id" />
+
+    <h2>@ViewBag.Title</h2>
+    <div>
+        <p>Nombre</p>
+        <input name="Nombre" type="text" value="@Model.Nombre" />
+    </div>
+    <div>
+
+        <p>Apellido</p>
+        <input name="Apellido" type="text" value="@Model.Apellido" />
+    </div>
+    <div>
+        <p>Fecha Nacimiento</p>
+        <input name="FechaNacimiento" type="date" value="@Model.FechaNacimiento.ToString("yyyy-MM-dd")" />
+    </div>
+    <div>
+        <p>Localidades</p>
+        <select name="NombreLocalidad">
+            @foreach (Ejemplo.MVC.Dominio.Entidades.Localidad localidad in ViewBag.Localidades)
+            {
+                if (Model.NombreLocalidad.ToUpper() == localidad.Nombre.ToUpper())
+                {
+                    <option id="@localidad.Id" selected="selected">@localidad.Nombre</option>
+                }
+                else
+                {
+                    <option id="@localidad.Id">@localidad.Nombre</option>
+                }
+            }
+        </select>
+    </div>
+    <br />
+    <br />
+    <input name="Guardar" Value="Guardar" type="submit" />
+</form>
+<br />
+<div>
+    <a href="/Home">Volver al listado</a>
+</div>
+

@@ -11,28 +11,37 @@
 </div>
 <br />
 <div>
+    <div class="row">
+        <div class="col-md-3">
+            <strong>NOMBRE APELLIDO</strong>
+        </div>
+        <div class="col-md-3">
+            <strong>FECHA NACIMIENTO</strong>
+        </div>
+        <div class="col-md-3">
+            <strong>LOCALIDAD</strong>
+        </div>
+        <div class="col-md-3" style="text-align: right">
+            <strong>ACCION</strong>
+        </div>
+    </div>
     @foreach (var cliente in Model)
     {
         <div class="row">
-
             <div class="col-md-3">
                 @cliente.Nombre.ToUpper()
-            </div>
-            <div class="col-md-3">
                 @cliente.Apellido.ToUpper()
             </div>
-            <div class="col-md-3" style="text-align: right">
+            <div class="col-md-3">
                 @cliente.FechaNacimiento.ToShortDateString()
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-               Localidad: @cliente.NombreLocalidad.ToUpper()
+            <div class="col-md-3">
+                Localidad: @cliente.NombreLocalidad.ToUpper()
             </div>
             <div class="col-md-3" style="text-align: right">
-                <a href="/Clientes/Detalle/@cliente.Id">Ver</a>
+                <a href="/Clientes/Detalle/@cliente.Id">Ver</a> |
+                <a href="/Clientes/Modificar/@cliente.Id">Modificar</a>
             </div>
         </div>
-        <br />
     }
 </div>

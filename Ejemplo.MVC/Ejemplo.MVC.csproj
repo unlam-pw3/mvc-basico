@@ -166,6 +166,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Clientes\Detalle.cshtml" />
     <Content Include="Views\Clientes\Nuevo.cshtml" />
+    <Content Include="Views\Clientes\Modificar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
