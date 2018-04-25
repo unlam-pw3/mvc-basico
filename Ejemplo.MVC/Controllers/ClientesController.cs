@@ -56,5 +56,21 @@ namespace Ejemplo.MVC.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Eliminar(int id)
+        {
+            var cliente = _clientesRepositorio.Obtener(id);
+
+            return View(cliente);
+        }
+
+        [HttpPost, ActionName("Eliminar")]//usando ActionName porque no se puede tener 2 metodos con mismo nombre y mismos parametros
+        [ValidateAntiForgeryToken]
+        public ActionResult EliminarPost(int id)
+        {
+            _clientesRepositorio.Eliminar(id);
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

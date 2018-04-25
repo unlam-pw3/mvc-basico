@@ -38,7 +38,7 @@ namespace Ejemplo.MVC.Dominio.Repositorios
             });
         }
 
-        internal Cliente Obtener(int idCliente)
+        public Cliente Obtener(int idCliente)
         {
             return Clientes.FirstOrDefault(c => c.Id == idCliente);
         }
@@ -57,6 +57,11 @@ namespace Ejemplo.MVC.Dominio.Repositorios
             clienteActual.Nombre = cliente.Nombre;
             clienteActual.FechaNacimiento = cliente.FechaNacimiento;
             clienteActual.NombreLocalidad = cliente.NombreLocalidad;
+        }
+
+        public void Eliminar(int idCliente)
+        {
+            Clientes.RemoveAll(c => c.Id == idCliente);
         }
     }
 }

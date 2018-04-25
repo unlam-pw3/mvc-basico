@@ -1,0 +1,26 @@
+﻿@model Ejemplo.MVC.Dominio.Entidades.Cliente
+
+@{
+    string nombreCompleto = Model.Nombre + " " + Model.Apellido;
+    ViewBag.Title = "Eliminando Cliente " + nombreCompleto;
+}
+<form action="Nuevo" method="POST">
+    @Html.AntiForgeryToken()
+    <input name="Id" type="hidden" value="@Model.Id" />
+
+    <h2>Confirma Eliminar Cliente @nombreCompleto?</h2>
+    <div><input name="Eliminar" Value="Eliminar" type="submit" /></div>
+
+    <br />
+    <strong>Nombre</strong>
+    <p>@Model.Nombre</p>
+    <strong>Apellido</strong>
+    <p>@Model.Apellido</p>
+    <strong>Fecha Nacimiento</strong>
+    <p>@Model.FechaNacimiento.ToShortDateString()</p>
+
+    <div>
+        <a href="/Home">Volver al listado</a>
+    </div>
+
+</form>
